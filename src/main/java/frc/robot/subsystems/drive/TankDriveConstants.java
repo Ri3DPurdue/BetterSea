@@ -3,10 +3,15 @@ package frc.robot.subsystems.drive;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
+import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.Pair;
+import edu.wpi.first.math.VecBuilder;
+import edu.wpi.first.math.numbers.N1;
+import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.system.plant.LinearSystemId;
 import edu.wpi.first.units.Units;
+import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 import frc.lib.component.MotorComponent;
@@ -21,6 +26,8 @@ import frc.robot.Robot;
 public class TankDriveConstants {
     public static Voltage maxVoltage = Units.Volts.of(10.0);
     public static double gearing = 5; // May be wrong, gearbox doesn't say
+    public static Distance trackWidth = Units.Inches.of(17.582);
+    public static Matrix<N3, N1> stdDevs = VecBuilder.fill(1000000.0, 1000000.0, 1000000.0);
 
     // Information about motors driving system 
     public static final DCMotor motor = DCMotor.getCIM(2); // Same for both sides
